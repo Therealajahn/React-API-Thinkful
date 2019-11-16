@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
+import SearchBar from './component/SearchBar';
+import FilterList from './component/FilterList';
+import BookList from './component/BookList';
+import './App.css';
 
-import SearchBar from './SearchBar/SearchBar';
-import FilterableList from './FilterableList/FilterableList'
+
 
 class App extends React.Component {
   render() {
   return (
+    
     <div className="App">
-      <SearchBar/>
-      <FilterableList files={props.files} />
+      <header className="header">
+        <h1>Hello</h1>
+      </header>
+      <SearchBar />
+      <FilterList/>
+      <BookList />
     </div>
   );
   }
