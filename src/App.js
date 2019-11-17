@@ -5,18 +5,53 @@ import BookList from './component/BookList';
 import './App.css';
 
 
-
 class App extends React.Component {
+  constructor (props){
+    super(props);
+    this.state = {}
+  }
+
+  componentDidMount() {
+    const apiKey = 'AIzaSyBcW9UxQpoNzco9I4r99heXWBnW76YDo5E'
+    const q = 'percy jackson';
+    const myURL = `https://www.googleapis.com/books/v1/volumes?q=${q}&key=${apiKey}`
+    
+    fetch(myURL)
+    .then(result => {
+      console.log(result)
+      return result.json();
+    }).then(resultJson => {
+      this.setState({
+      title: resultJson.items[0].volumeInfo.title,
+      authors: resultJson.items[0].volumeInfo.authors ,
+      price: resultJson.items[0].saleInfo.retailPrice.amount,
+      subtitle: resultJson.items[0].volumeInfo.subtitle,
+      imageURL: resultJson.items[0].volumeInfo.imageLinks.smallThumbnail,
+      printType: resultJson.items[0].volumeInfo.printType,
+      bookType: resultJson.items[0].volumeInfo.categories[0]
+      })
+    })
+    .catch(error => console.log(error));
+
+    
+
+  }
+
   render() {
   return (
     
     <div className="App">
       <header className="header">
-        <h1>Hello</h1>
+        <h1>Google Book Search</h1>
       </header>
-      <SearchBar />
-      <FilterList/>
-      <BookList />
+      <p>{this.state.title}</p>
+      <SearchBar/>
+      <FilterList />
+      <BookList 
+      title={this.state.title} 
+      author={this.state.authors} 
+      price={this.state.price} 
+      description={this.state.subtitle}/>
     </div>
   );
   }

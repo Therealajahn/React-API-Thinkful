@@ -7,11 +7,11 @@ class SearchBar extends React.Component {
     
     <div className="SearchBar">
       <form className="searchForm">
-          <label for="bar" className="search-label">
+          <label htmlFor="bar" className="search-label">
               Search:
               <input type="text"
               placeholder="something"
-              classname="search-input"></input>
+              className="search-input"></input>
               </label>
            <button type="submit"
            className="search-button">Search</button>   

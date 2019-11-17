@@ -7,7 +7,7 @@ class FilterList extends React.Component {
     <div className="FilterList">
       <form className="searchForm">
           
-          <label for="bar" className="search-label">
+          <label htmlFor="bar" className="search-label">
           Print Type
               <select>
                   <option>
@@ -15,7 +15,7 @@ class FilterList extends React.Component {
               </option>
               </select>
               </label>
-              <label for="bar" className="search-label">
+              <label htmlFor="bar" className="search-label">
           Book Type
               <select>
                   <option>
