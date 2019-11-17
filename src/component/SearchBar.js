@@ -11,10 +11,15 @@ class SearchBar extends React.Component {
               Search:
               <input type="text"
               placeholder="something"
-              className="search-input"></input>
+              id="search-input"></input>
               </label>
            <button type="submit"
-           className="search-button">Search</button>   
+           className="search-button"
+           onClick={(e) => {
+             e.preventDefault();
+             this.props.handleSubmit()}
+            }
+            >Search</button>   
           </form>
       
     </div>
