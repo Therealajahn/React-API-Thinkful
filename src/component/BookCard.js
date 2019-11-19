@@ -10,7 +10,7 @@ class BookCard extends React.Component {
       <div className="book-container">
           <div className="book-cover"></div>
           <div className="book-info">
-              <p>Author</p>
+              <p>{this.props.book.volumeInfo.title}</p>
               <p>Price</p>
               <p>Description</p>
           </div>
